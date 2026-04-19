@@ -1069,7 +1069,7 @@ const showError = useCallback((msg) => {
                         </div>
 
                         <textarea
-                            placeholder={isOcrRunning ? "AI is extracting text from the image... please wait..." : "Paste a news or article here..."}
+                            placeholder={isOcrRunning ? "AI is extracting text from the image... please wait..." : "Paste a News"}
                             value={analyzeInput}
                             onChange={e => setAnalyzeInput(e.target.value)}
                             onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey && !isOcrRunning) { e.preventDefault(); handleAnalyze(); } }}
