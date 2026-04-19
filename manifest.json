@@ -1,0 +1,21 @@
+{
+  "short_name": "DeepFake",
+  "name": "DeepFake Detection Suite",
+  "icons": [
+    {
+      "src": "Ld.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Ld.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
