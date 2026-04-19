@@ -15,7 +15,7 @@ const loadTesseract = () => new Promise((resolve, reject) => {
 const EyeOpenSVG = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.644C3.67 8.243 7.484 6 12 6c4.516 0 8.33 2.243 9.964 5.678a1.012 1.012 0 010 .644C20.33 15.757 16.516 18 12 18c-4.516 0-8.33-2.243-9.964-5.678z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`;
 const EyeSlashSVG = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.822 7.822L21 21m-2.278-2.278L15.07 15.07m-5.14-5.14l-2.07-2.07M10.5 10.5a3.5 3.5 0 115 5l-5-5z" /></svg>`;
 
-const API_BASE_URL = "http://127.0.0.1:5000/api";
+const API_BASE_URL = "https://hamzaparas-lets-detect.hf.space";
 
 const safe = (val, fallback = 'N/A') => {
     if (val === null || val === undefined || val === '') return fallback;
