@@ -104,19 +104,78 @@ const extractTextFromImage = async (file, onProgress) => {
         throw err;
     }
 };
-const Footer = ({ isDark }) => (
-    <footer className={`ld-footer ${isDark ? 'text-white' : 'text-slate-900'}`}>
-        <div className="footer-brand">
-            Lets <span>Detect</span>
-        </div>
-        <p className="footer-credit">
-            Created with <span>❤</span> by Paras
-        </p>
-        <div className="footer-copyright">
-            © {new Date().getFullYear()} All Rights Reserved
-        </div>
-    </footer>
-);
+const Footer = ({ isDark, setPage }) => {
+    // Scroll to top transition ke sath navigation
+    const handleNav = (pageName) => {
+        // State update karein
+        if (typeof setPage === 'function') {
+            setPage(pageName);
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            console.error("setPage function is not passed to Footer!");
+        }
+    };
+
+    return (
+        <footer className={`w-full py-16 px-6 mt-20 border-t transition-colors duration-300 ${
+            isDark 
+            ? 'bg-slate-950 border-white/5 text-white' 
+            : 'bg-white border-slate-100 text-slate-900'
+        }`}>
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                    
+                    {/* Brand Section */}
+                    <div className="col-span-1">
+                        <div 
+                            className="flex items-center gap-2 mb-6 cursor-pointer group" 
+                            onClick={() => handleNav('home')}
+                        >
+                            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                <span className="text-white font-black text-sm">LD</span>
+                            </div>
+                            <span className="text-2xl font-black tracking-tighter">
+                                Lets <span className="text-blue-600">Detect</span>
+                            </span>
+                        </div>
+                        <p className="text-sm font-medium opacity-60 max-w-xs">
+                            Advanced AI-powered forensic engine to identify misinformation and deepfakes.
+                        </p>
+                    </div>
+
+                    {/* Quick Navigation */}
+                    <div>
+                        <h4 className="font-black text-xs uppercase tracking-[0.2em] mb-6 text-blue-600">Quick Navigation</h4>
+                        <ul className="space-y-4 text-sm font-bold opacity-70 list-none p-0">
+                            <li onClick={() => handleNav('home')} className="hover:text-blue-600 cursor-pointer transition-all duration-200 hover:translate-x-1 inline-block w-full">Home</li>
+                            <li onClick={() => handleNav('about')} className="hover:text-blue-600 cursor-pointer transition-all duration-200 hover:translate-x-1 inline-block w-full">About Us</li>
+                            <li onClick={() => handleNav('contact')} className="hover:text-blue-600 cursor-pointer transition-all duration-200 hover:translate-x-1 inline-block w-full">Contact Us</li>
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div>
+                        <h4 className="font-black text-xs uppercase tracking-[0.2em] mb-6 text-blue-600">Legal</h4>
+                        <ul className="space-y-4 text-sm font-bold opacity-70 list-none p-0">
+                            <li onClick={() => handleNav('terms')} className="hover:text-blue-600 cursor-pointer transition-all duration-200 hover:translate-x-1 inline-block w-full">Terms and Conditions</li>
+                            <li onClick={() => handleNav('privacy')} className="hover:text-blue-600 cursor-pointer transition-all duration-200 hover:translate-x-1 inline-block w-full">Privacy Policy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-[10px] font-black uppercase tracking-widest opacity-40">
+                        © {new Date().getFullYear()} Lets Detect Security Labs.
+                    </p>
+                    <div className="flex gap-4">
+                        {/* Aap yahan social icons bhi add kar sakte hain */}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
+};
 
 const PrivacyPolicyPage = () => (
     <div className="max-w-6xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
@@ -836,7 +895,7 @@ const showError = useCallback((msg) => {
             </div>
             
             <div className="w-full relative z-10 mt-10">
-                <Footer isDark={isDark} />
+                <Footer isDark={isDark} setPage={setPage} />
             </div>
         </div>
     );
@@ -1208,7 +1267,7 @@ const showError = useCallback((msg) => {
                 </div>
             </main>
             <div className="w-full mt-20"> {/* <--- Yahan se border-t hata diya */}
-    <Footer isDark={isDark} />
+    <Footer isDark={isDark} setPage={setPage} />
 </div>
         </div>
     );
@@ -1295,7 +1354,7 @@ const showError = useCallback((msg) => {
                     <button onClick={() => { setAnalyzeInput(''); setSelectedFile(null); setPage('search'); }} className={`w-full md:w-auto mx-auto flex items-center justify-center gap-3 px-12 py-5 rounded-2xl font-black text-sm transition-all active:scale-95 shadow-xl ${isDark ? 'bg-white text-slate-900 hover:bg-slate-100' : 'bg-slate-900 text-white hover:bg-blue-600'}`}>
                         Analyze Another Article
                     </button>
-                    <Footer isDark={isDark} />
+                    <Footer isDark={isDark} setPage={setPage} />
                 </div>
                 
             </div>
@@ -1313,7 +1372,7 @@ if (page === 'privacy') {
       </header>
 
       <PrivacyPolicyPage />
-      <Footer isDark={isDark} />
+      <Footer isDark={isDark} setPage={setPage} />
     </div>
   );
 }
@@ -1333,7 +1392,7 @@ if (page === 'terms') {
       </nav>
 
       <TermsConditionsPage onContactClick={() => setPage('contact')} />
-      <Footer isDark={isDark} />
+      <Footer isDark={isDark} setPage={setPage} />
     </div>
   );
 }
@@ -1401,7 +1460,7 @@ if (page === 'contact') {
         </div>
       </div>
 
-      <Footer isDark={isDark} />
+      <Footer isDark={isDark} setPage={setPage} />
     </div>
   );
 }
@@ -1454,7 +1513,7 @@ if (page === 'success') {
         <p className={`mt-6 text-[10px] font-bold opacity-30`}>Thank you for reaching out!</p>
       </div>
 
-      <Footer isDark={isDark} />
+      
     </div>
   );
 }
@@ -1475,7 +1534,7 @@ if (page === 'about') {
       </nav>
 
       <AboutPage />
-      <Footer isDark={isDark} />
+      <Footer isDark={isDark} setPage={setPage} />
     </div>
   );
 }
