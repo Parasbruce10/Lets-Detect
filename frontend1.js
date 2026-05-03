@@ -164,14 +164,17 @@ const Footer = ({ isDark, setPage }) => {
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-[10px] font-black uppercase tracking-widest opacity-40">
-                        © {new Date().getFullYear()} Lets Detect Security Labs.
-                    </p>
-                    <div className="flex gap-4">
-                        {/* Aap yahan social icons bhi add kar sakte hain */}
-                    </div>
-                </div>
+               <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+    {/* Left Side: Copyright */}
+    <p className="text-[10px] font-black uppercase tracking-widest opacity-40">
+        © {new Date().getFullYear()} Lets Detect Security Labs.
+    </p>
+
+    {/* Right Side: Created by Paras */}
+    <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">
+        Created with <span className="text-red-500 text-xs">❤️</span> by Paras
+    </p>
+</div>
             </div>
         </footer>
     );
