@@ -922,7 +922,7 @@ const showError = useCallback((msg) => {
                     </div>
                 </div>
             )}
-    <header className="sticky top-0 z-50 w-full pt-4 pb-8"> 
+    <header className="relative z-50 w-full pt-4 pb-8"> 
     <div className="w-full flex items-center justify-between px-0">
         
         {/* Left Side: Logo */}
