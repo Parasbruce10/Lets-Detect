@@ -4,11 +4,9 @@ body {
     transition: background-color 0.4s ease; 
 }
 
-/* ===== WHITE HEADER — Lets Detect ===== */
-/* ===== UPDATED HEADER — Transparent Look ===== */
 .ld-header {
     background: transparent;
-    position: relative; /* Ensure karein ke ye relative ho fixed nahi */
+    position: relative;
     padding: 1.5rem 0;
     display: flex;
     align-items: center;
@@ -83,7 +81,7 @@ body {
     justify-content: center; 
     z-index: 10; 
 }
-/* ===== MODERN FOOTER ===== */
+
 .ld-footer {
     padding: 3rem 1.5rem;
     margin-top: 4rem;
@@ -92,7 +90,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Soft border */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-brand {
@@ -103,7 +101,7 @@ body {
 }
 
 .footer-brand span {
-    color: #2563eb; /* Blue accent */
+    color: #2563eb;
 }
 
 .footer-credit {
@@ -114,7 +112,7 @@ body {
 }
 
 .footer-credit span {
-    color: #ef4444; /* Heart color */
+    color: #ef4444;
     display: inline-block;
     animation: pulse 1.5s infinite;
 }
@@ -127,7 +125,6 @@ body {
     opacity: 0.4;
 }
 
-/* Dil (Heart) ki dhadkan wali animation */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
