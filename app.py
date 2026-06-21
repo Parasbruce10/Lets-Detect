@@ -1050,11 +1050,13 @@ def submit_feedback():
 def health():
     return jsonify({"status": "ok", "version": "4.2", "layers": 8}), 200
 
-
 if __name__ == '__main__':
-    print("Fake News Detector v4.2 - 8-Layer Engine Starting...")
-    print("OTP Registration: FIXED")
-    print("Forgot Password OTP: FIXED")
-    print("Short text detection: ENABLED")
-    print("Source website name display: ENABLED")
-    app.run(host='127.0.0.1', port=5000, debug=False, threaded=True)
+    print("Fake News Detector v4.2 - 8-Layer Engine Starting...")[cite: 1]
+    print("OTP Registration: FIXED")[cite: 1]
+    print("Forgot Password OTP: FIXED")[cite: 1]
+    print("Short text detection: ENABLED")[cite: 1]
+    print("Source website name display: ENABLED")[cite: 1]
+    
+    # Render dynamic port provide karta hai, host 0.0.0.0 hona zaroori hai
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
